@@ -1,8 +1,9 @@
 package edu.estu;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.fail;
 
 /**
  * BIM207 Project has 2 Parts, 50 points each.
@@ -14,11 +15,26 @@ public class App {
     /**
      * A shocking quiz.
      */
+
     public static void main(String[] args) {
         System.out.println("What is the minimum of the following doubles? Can you guess!");
         List<Double> doubleList = List.of(Double.NaN, 1D, 2D, 3D, -1D, -2D);
         System.out.println("The minimum element - as returned by Collections.min() method - is " + Collections.min(doubleList));
         System.out.println("Did you correctly anticipate the actual result? Did you find the actual result awkward or unexpected?");
+    }
+
+    public static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
+        map.merge(key, 1, Integer::sum);
+    }
+
+    /**
+     * Increment the frequency of the given key by one using wildcards.
+     *
+     * @param map the frequency map
+     * @param key any Enum type should work
+     */
+    public static <E extends Enum<E>> void incrementCountMapWildcard(Map<? super E, Integer> map, E key) {
+        map.merge(key, 1, Integer::sum);
     }
 
     /**
@@ -58,16 +74,21 @@ public class App {
      * Hint: Map.merge() - One method to rule them all
      * https://nurkiewicz.com/2019/03/mapmerge-one-method-to-rule-them-all.html
      */
-    static <> void {
+    public static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<Enum.EnumDesc<E>, Integer> map, Enum.EnumDesc<E> key) {
+        map.merge(key, 1, Integer::sum);
     }
 
-    static void {
+
+    public static void incrementCountMapEnumDescW(Map<Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
+        map.merge(key, 1, Integer::sum);
     }
 
-    static <> void {
-    }
 
-    static void {
-    }
+    /**
+     * Failing test case for the infiniteLoop method.
+     */
+
 }
+
+
 
