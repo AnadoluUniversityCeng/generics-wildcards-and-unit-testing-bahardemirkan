@@ -1,4 +1,5 @@
 package edu.estu;
+import org.example.App;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
@@ -14,5 +15,6 @@ public class FailingTest {
         }
     }
 }
+
 
 
