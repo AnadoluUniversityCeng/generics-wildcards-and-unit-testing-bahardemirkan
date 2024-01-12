@@ -1,4 +1,6 @@
 package edu.estu;
+package org.example;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -25,25 +27,21 @@ public class App {
         }
     }
 
-    static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
+    public static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
         map.merge(key, 1, Integer::sum);
     }
 
-    static <E extends Enum<E>> void incrementCountMapWildcard(Map<? super E, Integer> map, E key) {
+    public static <E extends Enum<E>> void incrementCountMapWildcard(Map<? super E, Integer> map, E key) {
         map.merge(key, 1, Integer::sum);
     }
 
-    static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<Enum.EnumDesc<E>, Integer> map, Enum.EnumDesc<E> key) {
+    public static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<Enum.EnumDesc<E>, Integer> map, Enum.EnumDesc<E> key) {
         map.merge(key, 1, Integer::sum);
     }
 
 
-    static <E extends Enum<E>> void incrementCountMapEnumDescW(Map<Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
+    public static <E extends Enum<E>> void incrementCountMapEnumDescW(Map<Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
         map.merge(key, 1, Integer::sum);
     }
 }
-
-
-
-
 
