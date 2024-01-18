@@ -1,6 +1,5 @@
 package edu.estu;
 
-import org.example.App;
 import org.junit.Test;
 
 import java.lang.constant.ClassDesc;
